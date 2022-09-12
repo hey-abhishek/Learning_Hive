@@ -128,6 +128,7 @@ hive> create  table covid_data
     > fields terminated by ',';
     
 #load data from local 
+    
     load data local inpath 'file:///home/cloudera/home/covid_19_clean_complete.csv' into table covid_data
     
 #creating tmp
@@ -137,10 +138,12 @@ hive> create  table covid_data
      hadoop fs -ls /tmp/covid_19_data_2
    
  #load data from hdfs
+    
     load data inpath '/tmp/covid_19_data_2/' into table department_data_from_hdfs;
     
     
-# creating External table   
+# creating External table 
+    
     
 hive> create external table covid_19_external_data
     > (
