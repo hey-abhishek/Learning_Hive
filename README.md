@@ -131,6 +131,7 @@ hive> create  table covid_data
     load data local inpath 'file:///home/cloudera/home/covid_19_clean_complete.csv' into table covid_data
     
 #creating tmp
+
      hadoop fs -mkdir /tmp/covid_19_data_2
      hadoop fs -put /home/cloudera/data/covid_19_clean_complete.csv /tmp/covid_19_data_2
      hadoop fs -ls /tmp/covid_19_data_2
