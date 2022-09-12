@@ -105,3 +105,60 @@ create table employee_map_data
 # Assignment Dataset
 
 https://www.kaggle.com/datasets/imdevskp/corona-virus-repor
+ 
+#creating database    
+hive> create table covid_data
+    
+#creating table of covid_data 
+    
+hive> create  table covid_data
+    > (
+    > state string,
+    > country string,
+    > lat float,
+    > Long float,
+    > date int,
+    > confirmed int,
+    > deaths int,
+    > recover int,
+    > active int,
+    > who_region string
+    > )
+    > row format delimited
+    > fields terminated by ',';
+    
+#load data from local 
+    load data local inpath 'file:///home/cloudera/home/covid_19_clean_complete.csv' into table covid_data
+    
+#creating tmp
+     hadoop fs -mkdir /tmp/covid_19_data_2
+     hadoop fs -put /home/cloudera/data/covid_19_clean_complete.csv /tmp/covid_19_data_2
+     hadoop fs -ls /tmp/covid_19_data_2
+   
+ #load data from hdfs
+    load data inpath '/tmp/covid_19_data_2/' into table department_data_from_hdfs;
+    
+    
+# creating External table   
+    
+hive> create external table covid_19_external_data
+    > (
+    > state string,
+    > country string,
+    > lat float,
+    > Long float,
+    > date int,
+    > confirmed int,
+    > deaths int,
+    > recover int,
+    > active int,
+    > who_region string
+    > )
+    > row format delimited
+    > fields terminated by ','
+    > location '/tmp/covid_19_data_2/';
+
+    
+    
+    
+    
