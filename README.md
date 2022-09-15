@@ -1,7 +1,7 @@
-# Assignment-1
-Hive query and command
-create database hive_class_b1;
-use hive_class_b1;
+
+# Hive query and command 
+  create database hive_class_b1;
+  use hive_class_b1;
 
 create table department_data                                                                                                            
     > (                                                                                                                                       
